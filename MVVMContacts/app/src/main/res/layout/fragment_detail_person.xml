@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="toolbarDetail" type="String" />
+        <variable name="personDetailFragment" type="com.eray.mvvmcontacts.ui.fragment.DetailPersonFragment" />
+        <variable name="personObject" type="com.eray.mvvmcontacts.data.entity.Person" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color3"
+        tools:context=".ui.fragment.DetailPersonFragment">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarDetailPersonFragment"
+            android:layout_width="0dp"
+            app:title="@{toolbarDetail}"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout3"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="352dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="32dp"
+            android:hint="Person Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarDetailPersonFragment">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextDetailPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{personObject.personName}"
+                 />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout4"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="352dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="24dp"
+            android:hint="Person Number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextDetailPersonNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{personObject.personTel}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/color2"
+            android:text="Save"
+            android:onClick="@{() -> personDetailFragment.buttonUpdatePerson(personObject.person_id , editTextDetailPersonName.getText().toString(),editTextDetailPersonNumber.getText().toString())}"
+            app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
+            app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

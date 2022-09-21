@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.eray.mvvmcontacts.ui.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/goToAddPerson"
+            app:destination="@id/addPersonFragment" />
+        <action
+            android:id="@+id/goToDetailPerson"
+            app:destination="@id/detailPersonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailPersonFragment"
+        android:name="com.eray.mvvmcontacts.ui.fragment.DetailPersonFragment"
+        android:label="fragment_detail_person"
+        tools:layout="@layout/fragment_detail_person" >
+        <argument
+            android:name="person"
+            app:argType="com.eray.mvvmcontacts.data.entity.Person" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPersonFragment"
+        android:name="com.eray.mvvmcontacts.ui.fragment.AddPersonFragment"
+        android:label="fragment_add_person"
+        tools:layout="@layout/fragment_add_person" />
+</navigation>
