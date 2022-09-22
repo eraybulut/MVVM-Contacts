@@ -6,6 +6,7 @@ Contacts application compatible with MVVM architecture
 - Room
 - Hilt - Dagger
 - Coroutine
+- Navigation component
 
 
 ## Screenshot
